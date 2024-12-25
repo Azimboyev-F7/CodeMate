@@ -57,3 +57,22 @@ import json
 # df.to_excel('1111.xlsx', index=False)  # 'output.xlsx' ni fayl nomi bilan almashtiring
 #
 # print("Ma'lumotlar muvaffaqiyatli Excel fayliga saqlandi!")
+
+import requests
+user = input("So'zni kiriting ::")
+url = "https://google-translate113.p.rapidapi.com/api/v1/translator/html"
+
+payload = {
+	"from": "en",
+	"to": "uz",
+	"html": user
+}
+headers = {
+	"x-rapidapi-key": "85ca73a9cfmsh764ba42f098f83dp1d9877jsnee1682ad5635",
+	"x-rapidapi-host": "google-translate113.p.rapidapi.com",
+	"Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.json())
